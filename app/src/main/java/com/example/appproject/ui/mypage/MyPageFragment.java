@@ -14,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.appproject.R;
-import com.example.appproject.ui.home.HomeViewModel;
 
 public class MyPageFragment extends Fragment {
 
