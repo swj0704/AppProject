@@ -1,6 +1,7 @@
 package com.example.appproject.ui.food;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,15 @@ public class Food extends Fragment {
         lunch = root.findViewById(R.id.lunch);
         dinner = root.findViewById(R.id.dinner);
 
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH)+1;
+        int day = cal.get(Calendar.DATE)-1;
 
-        makeText(2020,7,1);
+
+        makeText(year, month, day);
+
+        Log.d("숫자",String.valueOf(month));
+        Log.d("숫자",String.valueOf(day));
 
         return root;
     }
@@ -45,10 +53,10 @@ public class Food extends Fragment {
                 try {
                     School school = new School(School.Type.HIGH,School.Region.GWANGJU,"F100000120");
 
-                    List<Menu> menu = school.getMonthlyMenu(2020, 7);
-                    breakfast.setText(menu.get(1).getBreakfast());
-                    lunch.setText(menu.get(1).getLunch());
-                    dinner.setText(menu.get(1).getDinner());
+                    List<Menu> menu = school.getMonthlyMenu(year,month);
+                    breakfast.setText(menu.get(day).getBreakfast());
+                    lunch.setText(menu.get(day).getLunch());
+                    dinner.setText(menu.get(day).getDinner());
                 } catch (NEISException e) {
                     e.printStackTrace();
                 }
