@@ -68,6 +68,7 @@
 
 
     <LinearLayout
+<<<<<<< HEAD
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -167,6 +168,22 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape"
+        android:elevation="15dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+>>>>>>> cbbfa94f4f696e490f4b778bd74bbf6c1d3df7a3
     </LinearLayout>
 
 
