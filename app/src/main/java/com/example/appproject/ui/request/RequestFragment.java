@@ -1,4 +1,5 @@
-package com.example.appproject.ui.home;
+package com.example.appproject.ui.request;
+
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,16 +14,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.appproject.R;
+import com.example.appproject.ui.home.HomeViewModel;
 
-public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
+public class RequestFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        View root = inflater.inflate(R.layout.fragment_request, container, false);
 
         return root;
     }
