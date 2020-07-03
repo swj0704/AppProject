@@ -17,20 +17,13 @@ import com.example.appproject.R;
 
 public class MyPageFragment extends Fragment {
 
-    private MyPageViewModel myPageViewModel;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        myPageViewModel =
-                ViewModelProviders.of(this).get(MyPageViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        myPageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         return root;
     }
 }
