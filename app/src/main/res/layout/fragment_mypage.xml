@@ -131,110 +131,121 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="205dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="14dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <TextView
-            android:id="@+id/bonusPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:elevation="11dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="25"
-            android:textColor="#000000"
-            android:textSize="35dp"
-            app:layout_constraintEnd_toEndOf="@id/view1"
-            app:layout_constraintStart_toStartOf="@id/view1"
-            app:layout_constraintTop_toTopOf="@+id/view1" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="11dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="상점"
-            android:textColor="#000000"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view1"
-            app:layout_constraintEnd_toEndOf="@id/view1"
-            app:layout_constraintStart_toStartOf="@id/view1"
-            app:layout_constraintTop_toBottomOf="@+id/bonusPoint" />
-
-        <View
-            android:id="@+id/view1"
-            android:layout_width="170dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="8dp"
-            android:background="@drawable/shape"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="205dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="14dp"
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/minusPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="205dp"
+            android:layout_height="130dp"
             android:layout_marginTop="14dp"
-            android:elevation="11dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="25"
-            android:textColor="#000000"
-            android:textSize="35dp"
-            app:layout_constraintEnd_toEndOf="@id/view2"
-            app:layout_constraintStart_toStartOf="@id/view2"
-            app:layout_constraintTop_toTopOf="@+id/view2" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:elevation="11dp"
-            android:fontFamily="@font/malgunbd"
-            android:text="벌점"
-            android:textColor="#000000"
-            android:textSize="25dp"
-            app:layout_constraintBottom_toBottomOf="@+id/view2"
-            app:layout_constraintEnd_toEndOf="@id/view2"
-            app:layout_constraintStart_toStartOf="@id/view2"
-            app:layout_constraintTop_toBottomOf="@+id/minusPoint" />
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="170dp"
-            android:layout_height="90dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/shape"
-            android:elevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/bonusPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:elevation="11dp"
+                android:fontFamily="@font/malgunbd"
+                android:text="25"
+                android:textColor="#000000"
+                android:textSize="35dp"
+                app:layout_constraintEnd_toEndOf="@id/view1"
+                app:layout_constraintStart_toStartOf="@id/view1"
+                app:layout_constraintTop_toTopOf="@+id/view1" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="11dp"
+                android:fontFamily="@font/malgunbd"
+                android:text="상점"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view1"
+                app:layout_constraintEnd_toEndOf="@id/view1"
+                app:layout_constraintStart_toStartOf="@id/view1"
+                app:layout_constraintTop_toBottomOf="@+id/bonusPoint" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/shape"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="205dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <TextView
+                android:id="@+id/minusPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:elevation="11dp"
+                android:fontFamily="@font/malgunbd"
+                android:text="25"
+                android:textColor="#000000"
+                android:textSize="35dp"
+                app:layout_constraintEnd_toEndOf="@id/view2"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:elevation="11dp"
+                android:fontFamily="@font/malgunbd"
+                android:text="벌점"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="@id/view2"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@+id/minusPoint" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="170dp"
+                android:layout_height="90dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:background="@drawable/shape2"
         android:elevation="10dp"
@@ -243,9 +254,11 @@
         android:text="안드로이드 개발자"
         android:textColor="#000000"
         android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -255,35 +268,37 @@
         app:layout_constraintGuide_begin="365dp" />
 
     <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:gravity="center_vertical"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            >
+            android:layout_marginRight="20dp">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그아웃"
-                android:textSize="20dp"
                 android:fontFamily="@font/malgunbd"
+                android:text="로그아웃"
                 android:textColor="#000000"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -295,6 +310,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <Button
+                android:id="@+id/btnLogout"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
@@ -302,27 +318,24 @@
                 android:background="@drawable/right"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/btnLogout"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            >
+            android:layout_marginRight="20dp">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="비밀번호 변경"
-                android:textSize="20dp"
                 android:fontFamily="@font/malgunbd"
+                android:text="비밀번호 변경"
                 android:textColor="#000000"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -336,6 +349,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <Button
+                android:id="@+id/btnChangePW"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
@@ -343,27 +357,24 @@
                 android:background="@drawable/right"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/btnChangePW"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            >
+            android:layout_marginRight="20dp">
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="상 / 벌점 내역"
-                android:textSize="20dp"
                 android:fontFamily="@font/malgunbd"
+                android:text="상 / 벌점 내역"
                 android:textColor="#000000"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -377,6 +388,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
+                android:id="@+id/btnCheckPoint"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
@@ -384,27 +396,24 @@
                 android:background="@drawable/right"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/btnCheckPoint"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            >
+            android:layout_marginRight="20dp">
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="개발자 소개"
-                android:textSize="20dp"
                 android:fontFamily="@font/malgunbd"
+                android:text="개발자 소개"
                 android:textColor="#000000"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -418,6 +427,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <Button
+                android:id="@+id/btnDeveloperInfo"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="8dp"
@@ -425,8 +435,7 @@
                 android:background="@drawable/right"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/btnDeveloperInfo"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
