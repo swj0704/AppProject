@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ public class Food extends Fragment {
 
     TextView breakfast, lunch, dinner;
 
+
     Calendar cal = Calendar.getInstance();
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_food, container, false);
@@ -33,6 +35,7 @@ public class Food extends Fragment {
         breakfast = root.findViewById(R.id.breakfast);
         lunch = root.findViewById(R.id.lunch);
         dinner = root.findViewById(R.id.dinner);
+
 
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH)+1;
@@ -55,12 +58,22 @@ public class Food extends Fragment {
 
                     List<Menu> menu = school.getMonthlyMenu(year,month);
                     breakfast.setText(menu.get(day).getBreakfast());
+                    if(breakfast.getText().toString().isEmpty()){
+                        breakfast.setText("아침이 없습니다");
+                    }
                     lunch.setText(menu.get(day).getLunch());
+                    if(lunch.getText().toString().isEmpty()){
+                        lunch.setText("점심이 없습니다");
+                    }
                     dinner.setText(menu.get(day).getDinner());
+                    if(dinner.getText().toString().isEmpty()){
+                        dinner.setText("저녁이 없습니다");
+                    }
                 } catch (NEISException e) {
                     e.printStackTrace();
                 }
             }
         }.start();
     }
+
 }
