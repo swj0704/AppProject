@@ -1,6 +1,7 @@
 package com.example.appproject.ui.mypage;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.appproject.LoginActivity;
 import com.example.appproject.R;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -37,6 +39,8 @@ public class MyPageFragment extends Fragment {
             switch (v.getId()){
                 case R.id.btnLogout:
                     FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
                     getActivity().finish();
                     break;
 
