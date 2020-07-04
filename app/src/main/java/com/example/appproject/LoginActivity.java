@@ -73,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user != null){
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 }

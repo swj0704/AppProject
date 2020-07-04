@@ -25,8 +25,9 @@ import kr.go.neis.api.School;
 
 public class Food extends Fragment {
 
-    TextView breakfast, lunch, dinner;
-
+    TextView breakfast, lunch, dinner, timeText, dayWeek;
+    String[] dayOfWeek = {"일요일", "월요일", "화요일" , "수요일", "목요일", "금요일", "토요일"};
+    Button btnAdd, btnSub;
 
     Calendar cal = Calendar.getInstance();
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,21 +36,36 @@ public class Food extends Fragment {
         breakfast = root.findViewById(R.id.breakfast);
         lunch = root.findViewById(R.id.lunch);
         dinner = root.findViewById(R.id.dinner);
+        timeText = root.findViewById(R.id.timeText);
+        dayWeek = root.findViewById(R.id.day);
+        btnAdd = root.findViewById(R.id.btnright);
+        btnSub = root.findViewById(R.id.btnleft);
 
+        makeText();
 
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH)+1;
-        int day = cal.get(Calendar.DATE)-1;
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cal.add(Calendar.DATE, 1);
+                makeText();
+            }
+        });
 
-
-        makeText(year, month, day);
-
-        Log.d("숫자",String.valueOf(month));
-        Log.d("숫자",String.valueOf(day));
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cal.add(Calendar.DATE, -1);
+                makeText();
+            }
+        });
 
         return root;
     }
-    public void makeText(final int year, final int month, final int day){
+    public void makeText(){
+        final int year = cal.get(Calendar.YEAR);
+        final int month = cal.get(Calendar.MONTH)+1;
+        final int day = cal.get(Calendar.DATE)-1;
+        int calDay = cal.get(Calendar.DAY_OF_WEEK);
         new Thread(){
             @Override
             public void run() {
@@ -69,11 +85,14 @@ public class Food extends Fragment {
                     if(dinner.getText().toString().isEmpty()){
                         dinner.setText("저녁이 없습니다");
                     }
+
                 } catch (NEISException e) {
                     e.printStackTrace();
                 }
             }
         }.start();
+        timeText.setText(year + "년 " + month + "월 " + (day+1) + "일");
+        dayWeek.setText(dayOfWeek[calDay-1] + " 식단표");
     }
 
 }
