@@ -1,11 +1,24 @@
 package com.example.appproject;
 
-public class SongData {
-    public String songName;
-    public String songURL;
+import java.util.ArrayList;
 
-    public SongData(String songName, String songURL){
+
+public class SongData {
+    public ArrayList<String> songName;
+    public ArrayList<String> songURL;
+
+    public SongData(){
+
+    }
+
+    public SongData(ArrayList<String> songName, ArrayList<String> songURL){
         this.songName = songName;
         this.songURL = songURL;
+    }
+    public ArrayList<String> getSongName(){
+        return songName;
+    }
+    public ArrayList<String> getSongURL(){
+        return songURL;
     }
 }

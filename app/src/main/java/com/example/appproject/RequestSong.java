@@ -6,25 +6,35 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class RequestSong extends AppCompatActivity {
 
-    FirebaseFirestore firestore;
+    DatabaseReference myRef;
+    FirebaseDatabase database;
     Button btnRequest, btnReturn;
     TextView songName, songURL;
-    ArrayList<SongData> arrayList;
+    ArrayList<String> name, URL;
     SongData songData;
+    ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +44,32 @@ public class RequestSong extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnReturn);
         songName = findViewById(R.id.songName);
         songURL = findViewById(R.id.songUrl);
+        listView = findViewById(R.id.listView);
 
-        firestore = FirebaseFirestore.getInstance();
+        name = new ArrayList<>();
+        URL = new ArrayList<>();
 
-        
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("RequestSong");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                SongData data = snapshot.getValue(SongData.class);
+                if (data != null) {
+                    name = data.getSongName();
+                    URL = data.getSongURL();
+                    makeAdapter(name, URL);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +84,27 @@ public class RequestSong extends AppCompatActivity {
                 if(songName.getText().toString().isEmpty() || songURL.getText().toString().isEmpty()){
                     Toast.makeText(RequestSong.this, "노래 이름이나 링크를 제대로 적어주세요!",Toast.LENGTH_LONG).show();
                 }else {
-                    arrayList.add(songData);
-                    firestore.collection("RequestSong").document("Request").set(arrayList);
+                    name.add(songName.getText().toString());
+                    URL.add(songURL.getText().toString());
+                    songData = new SongData(name, URL);
+                    myRef.setValue(songData);
                 }
             }
         });
+    }
+
+    private void makeAdapter(ArrayList<String> name, ArrayList<String> url) {
+
+        ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
+        for(int i = 0; i < name.size(); i++){
+            HashMap<String,String> hashMap = new HashMap<>();
+            hashMap.put("title", name.get(i));
+            hashMap.put("contents",url.get(i));
+
+            arrayList.add(hashMap);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(this, arrayList, android.R.layout.simple_list_item_2, new String[]{"title","contents"},new int[]{android.R.id.text1,android.R.id.text2});
+        listView.setAdapter(adapter);
+
     }
 }
