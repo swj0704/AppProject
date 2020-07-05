@@ -8,11 +8,12 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="406dp"
+        android:layout_width="0dp"
         android:layout_height="379dp"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/songName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,30 +23,30 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="노래이름"
         android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/songUrl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/songUrl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
+        android:hint="노래 링크"
         android:inputType="textUri"
         android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRequestSong"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/songName"
-        android:hint="노래 링크"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnRequestSong"
