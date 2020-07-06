@@ -54,6 +54,12 @@
             android:layout_height="wrap_content"
             android:text="노래 신청 내역 보기" />
 
+        <Button
+            android:id="@+id/setNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="공지사항 적기" />
+
     </LinearLayout>
 
 
