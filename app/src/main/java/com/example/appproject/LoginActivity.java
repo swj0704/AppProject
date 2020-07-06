@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 email = edEmail.getText().toString();
                 password = edPassword.getText().toString();
-                if(edEmail.getText().toString().isEmpty() && edPassword.getText().toString().isEmpty()){
+                if(edEmail.getText().toString().isEmpty() || edPassword.getText().toString().isEmpty()){
                     Toast.makeText(LoginActivity.this, "이메일과 비밀번호를 입력하세요!", Toast.LENGTH_LONG).show();
                 } else {
                     mAuth.signInWithEmailAndPassword(email,password)
