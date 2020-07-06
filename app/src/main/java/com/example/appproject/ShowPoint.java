@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -27,12 +29,16 @@ public class ShowPoint extends AppCompatActivity {
     ArrayList<String> reason = new ArrayList<>();
     ArrayList<Integer> point = new ArrayList<>();
     ListView listView;
+    Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_point);
         listView = findViewById(R.id.pointList);
+
+        btnReturn = findViewById(R.id.button);
+
         database= FirebaseDatabase.getInstance();
         myRef = database.getReference("student").child(id).child("studentData").child("pointList");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -49,6 +55,12 @@ public class ShowPoint extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

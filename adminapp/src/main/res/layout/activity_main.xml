@@ -46,7 +46,7 @@
             android:id="@+id/stayNameSheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="잔류 학생 명단" />
+            android:text="잔류 신청 학생 명단" />
 
         <Button
             android:id="@+id/btnCheckSong"
