@@ -14,6 +14,7 @@
         android:gravity="center"
         android:text="광소마 관리자 전용 앱"
         android:textSize="24dp"
+        android:fontFamily="@font/malgunbd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,31 +35,56 @@
             android:id="@+id/btnSetPoint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="상벌점 주기" />
+            android:text="상벌점 주기"
+            android:background="@color/mainColor"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/malgunbd"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/laptopNameSheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="노트북 대여자 명단" />
+            android:text="노트북 대여자 명단"
+            android:background="@color/mainColor"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/malgunbd"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/stayNameSheet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="잔류 신청 학생 명단" />
+            android:text="잔류 신청 학생 명단"
+            android:background="@color/mainColor"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/malgunbd"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/btnCheckSong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="노래 신청 내역 보기" />
+            android:text="노래 신청 내역 보기"
+            android:background="@color/mainColor"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/malgunbd"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
         <Button
             android:id="@+id/setNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="공지사항 적기" />
+            android:text="공지사항 적기"
+            android:background="@color/mainColor"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/malgunbd"
+            android:textSize="17sp"
+            android:layout_marginBottom="15dp"/>
 
     </LinearLayout>
 
