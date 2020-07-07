@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_request"
-        android:name="com.example.appproject.ui.request.RequestFragment"
+        android:name="com.example.appproject.request.RequestFragment"
         android:label="@string/title_request"
         tools:layout="@layout/fragment_request" >
         <action
