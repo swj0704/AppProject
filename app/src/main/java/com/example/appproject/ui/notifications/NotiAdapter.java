@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.appproject.ItemNoti;
+import com.example.appproject.Notification;
 import com.example.appproject.R;
 
 import java.util.ArrayList;
@@ -17,9 +18,9 @@ public class NotiAdapter extends BaseAdapter {
 
     Context context;
     int resource;
-    ArrayList<ItemNoti> dataList;
+    ArrayList<Notification> dataList;
 
-    public NotiAdapter(Context context, int resource, ArrayList<ItemNoti> dataList) {
+    public NotiAdapter(Context context, int resource, ArrayList<Notification> dataList) {
         this.context = context;
         this.resource = resource;
         this.dataList = dataList;

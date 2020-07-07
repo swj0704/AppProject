@@ -10,6 +10,9 @@ public class ItemNoti {
         this.titleStr = titleStr;
         this.contentStr = contentStr;
     }
+    public ItemNoti(){
+
+    }
 
     public ArrayList<String> getTitleStr() {
         return titleStr;
