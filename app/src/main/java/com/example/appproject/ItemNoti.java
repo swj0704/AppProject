@@ -1,19 +1,25 @@
 package com.example.appproject;
 
-public class ItemNoti {
-    private String titleStr;
-    private String contentStr;
+import java.util.ArrayList;
 
-    public ItemNoti(String titleStr, String contentStr){
+public class ItemNoti {
+    private ArrayList<String> titleStr;
+    private ArrayList<String> contentStr;
+
+    public ItemNoti(ArrayList<String> titleStr, ArrayList<String> contentStr){
         this.titleStr = titleStr;
         this.contentStr = contentStr;
     }
 
-    public String getTitleStr() {
+    public ItemNoti(){
+
+    }
+
+    public ArrayList<String> getTitleStr() {
         return titleStr;
     }
 
-    public String getContentStr() {
+    public ArrayList<String> getContentStr() {
         return contentStr;
     }
 }

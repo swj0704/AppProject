@@ -15,33 +15,71 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.appproject.ItemNoti;
+import com.example.appproject.Notification;
 import com.example.appproject.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
     ListView listView;
-    ArrayList<ItemNoti> dataList = new ArrayList<ItemNoti>();
+    ArrayList<String> title = new ArrayList<>();
+    ArrayList<String> contents = new ArrayList<>();
+
+    ArrayList<Notification> dataList = new ArrayList<>();
+
+    ItemNoti notification;
+
+    DatabaseReference myRef;
+    FirebaseDatabase database;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Notification");
         listView = root.findViewById(R.id.listView);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                notification = snapshot.getValue(ItemNoti.class);
+                if(notification != null) {
+                    title = notification.getTitleStr();
+                    contents = notification.getContentStr();
+                    for (int i = 0 ; i < title.size(); i++) {
+                        dataList.add(new Notification(title.get(i), contents.get(i)));
+                    }
+                }
+                makeAdapter(dataList);
+            }
 
-        dataList.add(new ItemNoti("제목1","내용1"));
-        dataList.add(new ItemNoti("제목2","내용2"));
-        dataList.add(new ItemNoti("제목3","내용3"));
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
-        final NotiAdapter adapter = new NotiAdapter(getActivity().getApplicationContext(), R.layout.row_notifications, dataList);
+            }
+        });
 
-        listView.setAdapter(adapter);
+
+
+
+
+
 
         return root;
     }
 
 
+    public void makeAdapter(ArrayList<Notification> dataList){
+        NotiAdapter adapter = new NotiAdapter(getActivity().getApplicationContext(), R.layout.row_notifications, dataList);
+
+        listView.setAdapter(adapter);
+    }
 
 }
