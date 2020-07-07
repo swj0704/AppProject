@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSetPoint, btnLaptopSheet, btnStaySheet, btnCheckSong;
+    Button btnSetPoint, btnLaptopSheet, btnStaySheet, btnCheckSong, btnWriteNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         btnLaptopSheet = findViewById(R.id.laptopNameSheet);
         btnStaySheet = findViewById(R.id.stayNameSheet);
         btnCheckSong = findViewById(R.id.btnCheckSong);
+        btnWriteNotification = findViewById(R.id.setNotification);
 
         btnSetPoint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CheckSong.class);
+                startActivity(intent);
+            }
+        });
+
+        btnWriteNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WriteNotification.class);
                 startActivity(intent);
             }
         });

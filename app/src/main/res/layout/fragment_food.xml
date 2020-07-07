@@ -26,67 +26,71 @@
         android:layout_marginTop="2dp"
         android:background="@drawable/shape"
         android:elevation="10dp"
+        android:fontFamily="@font/malgunbd"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        android:fontFamily="@font/malgunbd"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/dinner"
         android:layout_width="320dp"
         android:layout_height="150dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/shape"
         android:elevation="10dp"
+        android:fontFamily="@font/malgunbd"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8"
-        android:fontFamily="@font/malgunbd"/>
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/malgunbd"
         android:text="점심"
+        android:textColor="@color/mainColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breakfast"
-        android:fontFamily="@font/malgunbd"
-        android:textColor="@color/mainColor"/>
+        app:layout_constraintTop_toBottomOf="@+id/breakfast" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/malgunbd"
         android:text="저녁"
+        android:textColor="@color/mainColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lunch"
-        android:fontFamily="@font/malgunbd"
-        android:textColor="@color/mainColor"/>
+        app:layout_constraintTop_toBottomOf="@+id/lunch" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/malgunbd"
         android:text="아침"
+        android:textColor="@color/mainColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/day"
-        android:fontFamily="@font/malgunbd"
-        android:textColor="@color/mainColor"/>
+        app:layout_constraintTop_toBottomOf="@+id/day" />
 
     <TextView
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="24dp"
         android:text="2020년 7월 14일"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,12 +101,12 @@
         android:id="@+id/btnright"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="76dp"
         android:background="@drawable/right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.058" />
 
     <Button
         android:id="@+id/btnleft"
@@ -113,7 +117,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.057" />
 
     <TextView
         android:id="@+id/day"
