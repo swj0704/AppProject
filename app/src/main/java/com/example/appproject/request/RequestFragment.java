@@ -25,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class RequestFragment extends Fragment {
 
@@ -41,6 +43,13 @@ public class RequestFragment extends Fragment {
 
     String studentID, studentName;
 
+    Calendar calendar = Calendar.getInstance();
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH)+1;
+    int date = calendar.get(Calendar.DATE);
+    String dateID = ""+year+month+date;
+    String week = calendar.get(Calendar.YEAR) + "" + calendar.get(Calendar.WEEK_OF_YEAR);
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -51,8 +60,8 @@ public class RequestFragment extends Fragment {
         btnStay = root.findViewById(R.id.btn_stay);
 
         database= FirebaseDatabase.getInstance();
-        LaptopRef = database.getReference("RequestLaptop");
-        StayRef = database.getReference("RequestStay");
+        LaptopRef = database.getReference("RequestLaptop").child(dateID);
+        StayRef = database.getReference("RequestStay").child(week);
         myRef = database.getReference("student").child(id).child("studentData");
 
         LaptopRef.addValueEventListener(new ValueEventListener() {

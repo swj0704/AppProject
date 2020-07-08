@@ -16,6 +16,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class CheckLaptop extends AppCompatActivity {
@@ -31,6 +33,12 @@ public class CheckLaptop extends AppCompatActivity {
 
     Button btnReturn;
 
+    Calendar calendar = Calendar.getInstance();
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH)+1;
+    int date = calendar.get(Calendar.DATE);
+    String dateID = ""+year+month+date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +47,7 @@ public class CheckLaptop extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnBack);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("RequestLaptop");
+        myRef = database.getReference("RequestLaptop").child(dateID);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

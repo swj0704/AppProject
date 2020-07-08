@@ -53,11 +53,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/malgunbd"
         android:text="점심"
         android:textColor="@color/mainColor"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breakfast" />
@@ -66,11 +66,11 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/malgunbd"
         android:text="저녁"
         android:textColor="@color/mainColor"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,11 +80,11 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/malgunbd"
-        android:textSize="18sp"
         android:text="아침"
         android:textColor="@color/mainColor"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/day" />
@@ -93,7 +93,7 @@
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="2020년 7월 14일"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,7 +109,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <Button
         android:id="@+id/btnleft"
@@ -120,7 +120,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
         android:id="@+id/day"

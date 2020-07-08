@@ -54,7 +54,6 @@ public class FindPassword extends AppCompatActivity implements View.OnClickListe
                             if(task.isSuccessful()){
                                 Toast.makeText(FindPassword.this, "이메일을 보냈습니다.", Toast.LENGTH_LONG).show();
                                 finish();
-                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                             } else {
                                 Toast.makeText(FindPassword.this, "메일 보내기 실패!", Toast.LENGTH_LONG).show();
                             }

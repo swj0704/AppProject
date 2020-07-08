@@ -49,6 +49,7 @@ public class NotificationsFragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataList.clear();
                 notification = snapshot.getValue(ItemNoti.class);
                 if(notification != null) {
                     title = notification.getTitleStr();
@@ -77,6 +78,10 @@ public class NotificationsFragment extends Fragment {
 
 
     public void makeAdapter(ArrayList<Notification> dataList){
+
+        if(dataList.size() == 0){
+            dataList.add(new Notification("공지가 아직 없습니다", "공지가 아직 없습니다"));
+        }
         NotiAdapter adapter = new NotiAdapter(getActivity().getApplicationContext(), R.layout.row_notifications, dataList);
 
         listView.setAdapter(adapter);

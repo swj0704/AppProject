@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class CheckStay extends AppCompatActivity {
@@ -31,6 +32,9 @@ public class CheckStay extends AppCompatActivity {
 
     Button btnReturn;
 
+    Calendar calendar = Calendar.getInstance();
+    String week = calendar.get(Calendar.YEAR) + ""  +calendar.get(Calendar.WEEK_OF_YEAR);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +44,7 @@ public class CheckStay extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnMain);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("RequestStay");
+        myRef = database.getReference("RequestStay").child(week);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

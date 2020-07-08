@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.appproject.FindPassword;
 import com.example.appproject.LoginActivity;
 import com.example.appproject.R;
 import com.example.appproject.ShowPoint;
@@ -28,7 +29,7 @@ public class MyPageFragment extends Fragment {
     TextView userName, userInfo, plusText, minusText;
     DatabaseReference myRef;
     FirebaseDatabase database;
-    Button btnLogout, btnCheckPoint;
+    Button btnLogout, btnCheckPoint, btnChangePW;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String id = user.getEmail().substring(0,6);
 
@@ -61,12 +62,14 @@ public class MyPageFragment extends Fragment {
         userInfo = root.findViewById(R.id.userInfo);
         plusText = root.findViewById(R.id.bonusPoint);
         minusText = root.findViewById(R.id.minusPoint);
+        btnChangePW = root.findViewById(R.id.btnChangePW);
 
         btnLogout = root.findViewById(R.id.btnLogout);
         btnCheckPoint = root.findViewById(R.id.btnCheckPoint);
 
         btnLogout.setOnClickListener(listener);
         btnCheckPoint.setOnClickListener(listener);
+        btnChangePW.setOnClickListener(listener);
 
         return root;
     }
@@ -92,6 +95,9 @@ public class MyPageFragment extends Fragment {
                     Intent pointIntent = new Intent(getActivity().getApplicationContext(), ShowPoint.class);
                     startActivity(pointIntent);
                     break;
+                case R.id.btnChangePW:
+                    Intent PWIntent = new Intent(getActivity().getApplicationContext(), FindPassword.class);
+                    startActivity(PWIntent);
 
             }
         }

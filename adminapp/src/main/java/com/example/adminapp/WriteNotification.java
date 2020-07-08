@@ -1,10 +1,13 @@
 package com.example.adminapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -82,7 +85,24 @@ public class WriteNotification extends AppCompatActivity {
             }
         });
 
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                new AlertDialog.Builder(WriteNotification.this)
+                        .setTitle("공지사항을 삭제하시겠습니까?")
+                        .setMessage("선택된 공지사항 : " + title.get(position))
+                        .setCancelable(false)
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                title.remove(position);
+                                contents.remove(position);
+                                myRef.setValue(new ItemNoti(title, contents));
+                            }
+                        })
+                        .setNegativeButton("아니오",null).show();
+            }
+        });
 
 
 
@@ -90,13 +110,18 @@ public class WriteNotification extends AppCompatActivity {
     private void makeAdapter(ArrayList<String> title, ArrayList<String> contents) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
-        for(int i = 0; i < title.size(); i++){
-            HashMap<String,String> hashMap = new HashMap<>();
-            hashMap.put("title", title.get(i));
-            hashMap.put("contents",contents.get(i));
+        if(title.size() == 0){
 
-            arrayList.add(hashMap);
+        } else {
+            for (int i = 0; i < title.size(); i++) {
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("title", title.get(i));
+                hashMap.put("contents", contents.get(i));
+
+                arrayList.add(hashMap);
+            }
         }
+
         SimpleAdapter adapter = new SimpleAdapter(this, arrayList, android.R.layout.simple_list_item_2, new String[]{"title","contents"},new int[]{android.R.id.text1,android.R.id.text2});
         listView.setAdapter(adapter);
 
