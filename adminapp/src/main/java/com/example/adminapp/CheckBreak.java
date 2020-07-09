@@ -1,9 +1,13 @@
 package com.example.adminapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -48,6 +52,24 @@ public class CheckBreak extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                new AlertDialog.Builder(CheckBreak.this)
+                        .setTitle("수리가 완료 되었습니까?")
+                        .setMessage("선택된 시설 : " + breakTitle.get(position))
+                        .setCancelable(false)
+                        .setPositiveButton("네", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                breakTitle.remove(position);
+                                breakContents.remove(position);
+                                myRef.setValue(new BreakData(breakTitle, breakContents));
+                            }
+                        })
+                        .setNegativeButton("아니오",null).show();
             }
         });
     }

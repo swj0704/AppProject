@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoticeBreak"></activity>
+        <activity android:name=".Show_Developer"></activity>
+        <activity android:name=".NoticeBreak" />
         <activity android:name=".ShowPoint" />
         <activity android:name=".RequestSong" />
         <activity
