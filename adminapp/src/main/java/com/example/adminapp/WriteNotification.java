@@ -24,6 +24,7 @@ import java.util.HashMap;
 
 public class WriteNotification extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
 
@@ -36,19 +37,25 @@ public class WriteNotification extends AppCompatActivity {
     ListView listView;
 
     EditText edTitle, edContent;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_notification);
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Notification");
 
+        //region 변수에 객체 연결
         btnReturn = findViewById(R.id.returnBtn);
         btnWrite = findViewById(R.id.btnWrite);
         listView = findViewById(R.id.notificationList);
         edTitle = findViewById(R.id.notificationTitle);
         edContent = findViewById(R.id.editNotification);
+
+        //endregion
+
+        //region 데이터베이스 연결
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Notification");
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -67,6 +74,9 @@ public class WriteNotification extends AppCompatActivity {
             }
         });
 
+        //endregion
+
+        //region 공지사항 적는 코드
         btnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +87,7 @@ public class WriteNotification extends AppCompatActivity {
                 }
             }
         });
+        //endregion
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +96,8 @@ public class WriteNotification extends AppCompatActivity {
             }
         });
 
+
+        //region 쓸데없는 공지사항 삭제하기
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -103,10 +116,12 @@ public class WriteNotification extends AppCompatActivity {
                         .setNegativeButton("아니오",null).show();
             }
         });
-
+        //endregion
 
 
     }
+
+    //region 리스트뷰 어댑터 연결
     private void makeAdapter(ArrayList<String> title, ArrayList<String> contents) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -126,4 +141,6 @@ public class WriteNotification extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
+    //endregion
 }

@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MyPageFragment extends Fragment {
 
+    //region 변수 선언
     TextView userName, userInfo, plusText, minusText;
     DatabaseReference myRef;
     FirebaseDatabase database;
@@ -36,12 +37,14 @@ public class MyPageFragment extends Fragment {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String id = user.getEmail().substring(0,6);
     Button btnNoticebreak, btnSurvey, btnBug;
+    //endregion
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, final Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
 
+        //region 학생 정보 데이터베이스에서 가져오기
         database= FirebaseDatabase.getInstance();
         myRef = database.getReference("student").child(id).child("studentData");
 
@@ -62,6 +65,9 @@ public class MyPageFragment extends Fragment {
 
             }
         });
+        //endregion
+
+        //region 변수 객체 연결 & 버튼 이벤트 처리
         userName = root.findViewById(R.id.userName);
         userInfo = root.findViewById(R.id.userInfo);
         plusText = root.findViewById(R.id.bonusPoint);
@@ -84,17 +90,21 @@ public class MyPageFragment extends Fragment {
         btnNoticebreak.setOnClickListener(listener);
         btnSurvey.setOnClickListener(listener);
         btnBug.setOnClickListener(listener);
+        //endregion
 
         return root;
     }
 
+    //region 회원 정보 텍스트뷰에 띄우기
     private void makeText(String ID, String name, Integer plus, Integer minus) {
         userName.setText(name);
         userInfo.setText(ID);
         plusText.setText(String.valueOf(plus));
         minusText.setText(String.valueOf(minus));
     }
+    //endregion
 
+    //region 버튼 클릭 리스너들
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -131,4 +141,5 @@ public class MyPageFragment extends Fragment {
             }
         }
     };
+    //endregion
 }

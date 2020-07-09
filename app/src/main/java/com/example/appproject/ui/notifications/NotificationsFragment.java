@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
+    //region 변수 선언
     ListView listView;
     ArrayList<String> title = new ArrayList<>();
     ArrayList<String> contents = new ArrayList<>();
@@ -32,12 +33,14 @@ public class NotificationsFragment extends Fragment {
 
     DatabaseReference myRef;
     FirebaseDatabase database;
+    //endregion
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
+        //region 공지사항 데이터베이스 연결
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Notification");
         listView = root.findViewById(R.id.listView);
@@ -61,11 +64,12 @@ public class NotificationsFragment extends Fragment {
 
             }
         });
+        //endregion
 
         return root;
     }
 
-
+    //region 어댑터 연결
     public void makeAdapter(ArrayList<Notification> dataList){
 
         if(dataList.size() == 0){
@@ -75,5 +79,6 @@ public class NotificationsFragment extends Fragment {
 
         listView.setAdapter(adapter);
     }
+    //endregion
 
 }

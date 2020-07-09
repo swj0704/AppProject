@@ -23,6 +23,7 @@ import java.util.HashMap;
 
 public class CheckSong extends AppCompatActivity {
 
+    //region 변수선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     ArrayList<String> name = new ArrayList<>();
@@ -32,6 +33,8 @@ public class CheckSong extends AppCompatActivity {
 
     Button btnReturn;
 
+    //endregion
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,7 @@ public class CheckSong extends AppCompatActivity {
         listView = findViewById(R.id.songList);
         btnReturn = findViewById(R.id.button);
 
+        //region 데이터 베이스 연결
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("RequestSong");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -58,6 +62,7 @@ public class CheckSong extends AppCompatActivity {
 
             }
         });
+        //endregion
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +71,7 @@ public class CheckSong extends AppCompatActivity {
             }
         });
 
+        //region 노래 재생후 신청 목록에서 삭제하기
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -84,8 +90,11 @@ public class CheckSong extends AppCompatActivity {
                         .setNegativeButton("아니오",null).show();
             }
         });
+        //endregion
 
     }
+
+    //region 노래 리스트 어댑터 연결
     private void makeAdapter(ArrayList<String> name, ArrayList<String> url) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -100,4 +109,5 @@ public class CheckSong extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    //endregion
 }

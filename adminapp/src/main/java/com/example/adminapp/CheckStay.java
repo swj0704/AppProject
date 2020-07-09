@@ -21,6 +21,7 @@ import java.util.HashMap;
 
 public class CheckStay extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     ArrayList<String> studentName = new ArrayList<>();
@@ -33,7 +34,9 @@ public class CheckStay extends AppCompatActivity {
     Button btnReturn;
 
     Calendar calendar = Calendar.getInstance();
-    String week = calendar.get(Calendar.YEAR) + ""  +calendar.get(Calendar.WEEK_OF_YEAR);
+    //endregion
+
+    String week = calendar.get(Calendar.YEAR) + ""  +calendar.get(Calendar.WEEK_OF_YEAR);   //잔류는 1주일에 한번
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class CheckStay extends AppCompatActivity {
         listView = findViewById(R.id.StayList);
         btnReturn = findViewById(R.id.btnMain);
 
+        //region 잔류 신청자 명단 DB 연결
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("RequestStay").child(week);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -62,6 +66,8 @@ public class CheckStay extends AppCompatActivity {
             }
         });
 
+        //endregion
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +77,7 @@ public class CheckStay extends AppCompatActivity {
 
     }
 
+    //region 리스트뷰 어댑터 연결
     private void makeAdapter(ArrayList<String> name, ArrayList<String> url) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -85,4 +92,5 @@ public class CheckStay extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    //endregion
 }

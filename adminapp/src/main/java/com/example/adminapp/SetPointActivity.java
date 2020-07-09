@@ -22,35 +22,39 @@ import java.util.HashMap;
 
 public class SetPointActivity extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
+    ArrayList<String> nameList;
+    ArrayList<String> IDList;
+    String name;
+    String ID;
+    ListView listView;
+    Button btnReturn;
+    //endregion
+
+    //학생들 이메일 앞부분 따오기 (DB에 넣어둘걸 싸발...)
     String[] studentID = {
             "s19066", "s19004", "s19007", "s19058", "s19062",
             "s19010", "s19063", "s19032", "s19011", "s19072",
             "s19013", "s19034", "s19036", "s19067", "s19017",
             "s19018", "s19019", "s19020", "s19038", "s19040"
     };
-    ArrayList<String> nameList;
-    ArrayList<String> IDList;
-
-    String name;
-    String ID;
-
-    ListView listView;
-
-    Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_point);
 
+        //region 변수 객체에 연결
         nameList = new ArrayList<>();
         IDList = new ArrayList<>();
 
         listView = findViewById(R.id.listView);
         btnReturn = findViewById(R.id.btnReturn);
+        //endregion
 
+        //region 학생 데이터베이스 연결
         database = FirebaseDatabase.getInstance();
 
         myRef = database.getReference("student");
@@ -75,7 +79,9 @@ public class SetPointActivity extends AppCompatActivity {
 
             }
         });
+        //endregion
 
+        //region 학생 선택시 이벤트 처리
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,6 +92,7 @@ public class SetPointActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//endregion
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,8 +100,10 @@ public class SetPointActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
+    //region 학생들 명단 구체화
     private void makeText(ArrayList<String> nameList, ArrayList<String> idList) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -109,5 +118,6 @@ public class SetPointActivity extends AppCompatActivity {
         SimpleAdapter adapter = new SimpleAdapter(this, arrayList, android.R.layout.simple_list_item_2, new String[]{"name","ID"},new int[]{android.R.id.text1, android.R.id.text2});
         listView.setAdapter(adapter);
     }
+    //endregion
 
 }

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class NoticeBreak extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     Button btnWriteBreak, btnReturn;
@@ -25,17 +26,21 @@ public class NoticeBreak extends AppCompatActivity {
     BreakData data;
     ArrayList<String> breakTitle = new ArrayList<>();
     ArrayList<String> breakContents = new ArrayList<>();
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_break);
+
+        //region 변수에 객체 연결
         edTitle = findViewById(R.id.breakTitle);
         edContents = findViewById(R.id.breakContent);
         btnWriteBreak = findViewById(R.id.btnWriteBreak);
         btnReturn = findViewById(R.id.btnBack);
+        //endregion
 
-
+        //region 분실신고 데이터베이스 가져오기
         database= FirebaseDatabase.getInstance();
         myRef = database.getReference("NoticeBreak");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -53,7 +58,9 @@ public class NoticeBreak extends AppCompatActivity {
 
             }
         });
+        //endregion
 
+        //region 분실 신고 버튼 클릭 이벤트 처리
         btnWriteBreak.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +71,9 @@ public class NoticeBreak extends AppCompatActivity {
                 }
             }
         });
+
+        //endregion
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

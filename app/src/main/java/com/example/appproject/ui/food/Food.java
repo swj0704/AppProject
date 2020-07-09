@@ -25,13 +25,18 @@ import kr.go.neis.api.School;
 
 public class Food extends Fragment {
 
+    //region 변수 선언
     TextView breakfast, lunch, dinner, timeText, dayWeek;
     String[] dayOfWeek = {"일요일", "월요일", "화요일" , "수요일", "목요일", "금요일", "토요일"};
     Button btnAdd, btnSub;
 
     Calendar cal = Calendar.getInstance();
+    //endregion
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_food, container, false);
+        View root = inflater.inflate(R.layout.fragment_food, container, false); //프래그먼트 뷰 연결
+
+        //region 변수 객체 연결
         cal.setTime(new Date());
         breakfast = root.findViewById(R.id.breakfast);
         lunch = root.findViewById(R.id.lunch);
@@ -40,8 +45,9 @@ public class Food extends Fragment {
         dayWeek = root.findViewById(R.id.day);
         btnAdd = root.findViewById(R.id.btnright);
         btnSub = root.findViewById(R.id.btnleft);
+        //endregion
 
-        makeText();
+        makeText(); //급식 텍스트 띄우기
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +67,8 @@ public class Food extends Fragment {
 
         return root;
     }
+
+    //region 급식 텍스트 띄우는 메서드
     public void makeText(){
         final int year = cal.get(Calendar.YEAR);
         final int month = cal.get(Calendar.MONTH)+1;
@@ -94,5 +102,6 @@ public class Food extends Fragment {
         timeText.setText(year + "년 " + month + "월 " + (day+1) + "일");
         dayWeek.setText(dayOfWeek[calDay-1] + " 식단표");
     }
+    //endregion
 
 }

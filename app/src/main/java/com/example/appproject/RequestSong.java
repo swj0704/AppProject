@@ -28,6 +28,7 @@ import java.util.List;
 
 public class RequestSong extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     Button btnRequest, btnReturn;
@@ -35,11 +36,14 @@ public class RequestSong extends AppCompatActivity {
     ArrayList<String> name, URL;
     SongData songData;
     ListView listView;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request_song);
+
+        //region 변수 객체 연결
         btnRequest = findViewById(R.id.btnRequestSong);
         btnReturn = findViewById(R.id.btnReturn);
         songName = findViewById(R.id.songName);
@@ -48,7 +52,10 @@ public class RequestSong extends AppCompatActivity {
 
         name = new ArrayList<>();
         URL = new ArrayList<>();
+        //endregion
 
+
+        //region 노래 신청 데이터베이스 연결
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("RequestSong");
 
@@ -69,6 +76,7 @@ public class RequestSong extends AppCompatActivity {
 
             }
         });
+        //endregion
 
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +86,7 @@ public class RequestSong extends AppCompatActivity {
             }
         });
 
+        //region 노래 신청 이벤트 처리
         btnRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,8 +100,10 @@ public class RequestSong extends AppCompatActivity {
                 }
             }
         });
+        //endregion
     }
 
+    //region 리스트뷰 어댑터 연결
     private void makeAdapter(ArrayList<String> name, ArrayList<String> url) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -107,4 +118,5 @@ public class RequestSong extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    //endregion
 }

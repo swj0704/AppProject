@@ -22,6 +22,7 @@ import java.util.HashMap;
 
 public class CheckLaptop extends AppCompatActivity {
 
+    //region 변수선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     ArrayList<String> studentName = new ArrayList<>();
@@ -39,6 +40,8 @@ public class CheckLaptop extends AppCompatActivity {
     int date = calendar.get(Calendar.DATE);
     String dateID = ""+year+month+date;
 
+    //endregion
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +49,7 @@ public class CheckLaptop extends AppCompatActivity {
         listView = findViewById(R.id.LaptopList);
         btnReturn = findViewById(R.id.btnBack);
 
+        //region 오늘 노트북 신청자 명단 가져오는 코드
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("RequestLaptop").child(dateID);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -64,6 +68,7 @@ public class CheckLaptop extends AppCompatActivity {
 
             }
         });
+        //endregion
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +77,8 @@ public class CheckLaptop extends AppCompatActivity {
             }
         });
     }
+
+    //region 리스트뷰 어댑터 연결
     private void makeAdapter(ArrayList<String> name, ArrayList<String> url) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -86,4 +93,5 @@ public class CheckLaptop extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    //endregion
 }

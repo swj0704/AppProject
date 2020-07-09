@@ -18,12 +18,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //region 변수 선언
     Button btnLogin, btnSearchPassword;
     private FirebaseAuth mAuth;
     EditText edEmail, edPassword;
     String email, password;
-
-
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         edPassword = findViewById(R.id.inputPassword);
 
 
+        //region 전에 로그인 한적이 있으먄 자동 로그인
         mAuth = FirebaseAuth.getInstance();
         if(mAuth.getCurrentUser() != null){
             moveMainPage(mAuth.getCurrentUser());
         }
+        //endregion
+
+        //region 로그인 이벤트 처리
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+        //endregion
+
         btnSearchPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //region 로그인 성공시 메인으로 이동
     private void moveMainPage(FirebaseUser user) {
         if (user != null) {
             Intent intent = new Intent(this, MainActivity.class);
@@ -79,4 +86,5 @@ public class LoginActivity extends AppCompatActivity {
             finish();
         }
     }
+    //endregion
 }

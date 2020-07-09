@@ -22,6 +22,7 @@ import java.util.HashMap;
 
 public class ShowPoint extends AppCompatActivity {
 
+    //region 변수 선언
     DatabaseReference myRef;
     FirebaseDatabase database;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -30,6 +31,7 @@ public class ShowPoint extends AppCompatActivity {
     ArrayList<Integer> point = new ArrayList<>();
     ListView listView;
     Button btnReturn;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class ShowPoint extends AppCompatActivity {
 
         btnReturn = findViewById(R.id.button);
 
+        //region 학생별 상벌점 데이터 연결
         database= FirebaseDatabase.getInstance();
         myRef = database.getReference("student").child(id).child("studentData").child("pointList");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -57,6 +60,8 @@ public class ShowPoint extends AppCompatActivity {
 
             }
         });
+        //endregion
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,6 +69,8 @@ public class ShowPoint extends AppCompatActivity {
             }
         });
     }
+
+    //region 리스트뷰 어댑터 생성
     private void makeAdapter(ArrayList<String> reason, ArrayList<Integer> point) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -79,4 +86,5 @@ public class ShowPoint extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+    //endregion
 }

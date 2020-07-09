@@ -40,6 +40,7 @@ public class FindPassword extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //region 이메일 전송 버튼 클릭 이벤트
     @Override
     public void onClick(View view) {
         if(view == buttonFind){
@@ -63,6 +64,7 @@ public class FindPassword extends AppCompatActivity implements View.OnClickListe
 
         }
     }
+    //endregion
 
 
 

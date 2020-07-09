@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         btnWriteNotification = findViewById(R.id.setNotification);
         btnCheckBreak = findViewById(R.id.CheckBreak);
 
+        //region 버튼 클릭 리스너
         btnSetPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //endregion
 
     }
 }

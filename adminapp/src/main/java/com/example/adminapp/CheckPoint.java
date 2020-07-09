@@ -25,6 +25,7 @@ import java.util.HashMap;
 
 public class CheckPoint extends AppCompatActivity {
 
+    //region 변수선언
     DatabaseReference myRef;
     FirebaseDatabase database;
 
@@ -38,12 +39,14 @@ public class CheckPoint extends AppCompatActivity {
     RadioButton btnBonus, btnMinus;
     Button btnReturn, btnGivePoint;
     TextView textPlus, textMinus;
+    //endregion
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_point);
 
+        //region 생성된 변수에 레이아웃 연결
         listView = findViewById(R.id.pointList);
         editReason = findViewById(R.id.editReason);
         editPoint = findViewById(R.id.editPoint);
@@ -53,13 +56,17 @@ public class CheckPoint extends AppCompatActivity {
         btnReturn = findViewById(R.id.btnReturn);
         textPlus = findViewById(R.id.textPlus);
         textMinus = findViewById(R.id.textMinus);
+        //endregion
 
+        //region 상벌점 설정하려는 학생 정보 가져오기
         Intent intent = getIntent();
 
         name = intent.getStringExtra("name");
         ID = intent.getStringExtra("ID");
         studentID = intent.getStringExtra("studentID");
+        //endregion
 
+        //region 선택된 학생의 벌점 상태 가져오기
         database = FirebaseDatabase.getInstance();
 
         myRef = database.getReference("student").child(studentID).child("studentData");
@@ -83,6 +90,9 @@ public class CheckPoint extends AppCompatActivity {
 
             }
         });
+        //endregion
+
+        //region 버튼 클릭시 벌점 주는 코드
 
         btnGivePoint.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +123,7 @@ public class CheckPoint extends AppCompatActivity {
                 }
             }
         });
+        //endregion
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +132,8 @@ public class CheckPoint extends AppCompatActivity {
             }
         });
     }
+
+    //region 리스트뷰에 어댑터 설정
     private void makeAdapter(ArrayList<String> reason, ArrayList<Integer> point) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -136,4 +149,6 @@ public class CheckPoint extends AppCompatActivity {
         listView.setAdapter(adapter);
 
     }
+
+    //endregion
 }

@@ -36,6 +36,7 @@ public class CheckBreak extends AppCompatActivity {
 
         listView = findViewById(R.id.breakList);
 
+        //region 고장난 시설의 이름, 고장 상태 받아오기
         database= FirebaseDatabase.getInstance();
         myRef = database.getReference("NoticeBreak");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -54,6 +55,9 @@ public class CheckBreak extends AppCompatActivity {
 
             }
         });
+        //endregion
+
+        //region 수리가 완료되었을때 완료 표시하기
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -72,7 +76,11 @@ public class CheckBreak extends AppCompatActivity {
                         .setNegativeButton("아니오",null).show();
             }
         });
+        //endregion
+
     }
+
+    //region 리스트뷰 어댑터 생성
     private void makeAdapter(ArrayList<String> breakTitle, ArrayList<String> breakContents) {
 
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
@@ -87,4 +95,6 @@ public class CheckBreak extends AppCompatActivity {
         SimpleAdapter adapter = new SimpleAdapter(this, arrayList, android.R.layout.simple_list_item_2, new String[]{"breakTitle","breakContents"},new int[]{android.R.id.text1, android.R.id.text2});
         listView.setAdapter(adapter);
     }
+    //endregion
+
 }
