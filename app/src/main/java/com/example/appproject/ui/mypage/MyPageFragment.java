@@ -18,7 +18,6 @@ import com.example.appproject.LoginActivity;
 import com.example.appproject.NoticeBreak;
 import com.example.appproject.R;
 import com.example.appproject.ShowPoint;
-import com.example.appproject.Show_Developer;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -33,7 +32,7 @@ public class MyPageFragment extends Fragment {
     TextView userName, userInfo, plusText, minusText;
     DatabaseReference myRef;
     FirebaseDatabase database;
-    Button btnLogout, btnCheckPoint, btnChangePW, btnDeveloperInfo;
+    Button btnLogout, btnCheckPoint, btnChangePW;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String id = user.getEmail().substring(0,6);
     Button btnNoticebreak, btnSurvey, btnBug;
@@ -73,7 +72,6 @@ public class MyPageFragment extends Fragment {
         plusText = root.findViewById(R.id.bonusPoint);
         minusText = root.findViewById(R.id.minusPoint);
         btnChangePW = root.findViewById(R.id.btnChangePW);
-        btnDeveloperInfo = root.findViewById(R.id.btnDeveloperInfo);
 
         btnLogout = root.findViewById(R.id.btnLogout);
         btnCheckPoint = root.findViewById(R.id.btnCheckPoint);
@@ -85,7 +83,6 @@ public class MyPageFragment extends Fragment {
         btnLogout.setOnClickListener(listener);
         btnCheckPoint.setOnClickListener(listener);
         btnChangePW.setOnClickListener(listener);
-        btnDeveloperInfo.setOnClickListener(listener);
 
         btnNoticebreak.setOnClickListener(listener);
         btnSurvey.setOnClickListener(listener);
@@ -135,9 +132,6 @@ public class MyPageFragment extends Fragment {
                     Intent bugIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://forms.gle/T9mrCL3hA5KP95mC8"));
                     startActivity(bugIntent);
                     break;
-                case R.id.btnDeveloperInfo:
-                    Intent devInfo = new Intent(getActivity().getApplicationContext(), Show_Developer.class);
-                    startActivity(devInfo);
             }
         }
     };
