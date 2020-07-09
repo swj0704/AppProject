@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Show_Developer"></activity>
+        <activity android:name=".SplasyActivity"
+            android:theme="@style/SplashThme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Show_Developer" />
         <activity android:name=".NoticeBreak" />
         <activity android:name=".ShowPoint" />
         <activity android:name=".RequestSong" />
@@ -20,11 +29,7 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".FindPassword" />
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
