@@ -70,6 +70,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnNoticebreak"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/exclamation" />
@@ -92,6 +93,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnSurvey"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/survey" />
@@ -114,6 +116,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/btnBug"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:background="@drawable/problem" />
