@@ -11,6 +11,8 @@
         android:id="@+id/linearLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,6 +22,7 @@
             android:id="@+id/notificationTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/malgunbd"
             android:hint="공지사항 제목"
             android:inputType="text" />
 
@@ -27,6 +30,7 @@
             android:id="@+id/editNotification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/malgunbd"
             android:hint="공지사항 내용"
             android:inputType="textImeMultiLine"
             android:lines="4"
@@ -38,14 +42,23 @@
             android:id="@+id/btnWrite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="공지사항 적기" />
+            android:background="@color/mainColor"
+            android:fontFamily="@font/malgunbd"
+            android:text="공지사항 적기"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:layout_marginBottom="8dp"/>
 
         <Button
             android:id="@+id/returnBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:text="돌아가기" />
+            android:background="@color/mainColor"
+            android:fontFamily="@font/malgunbd"
+            android:text="돌아가기"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <ListView
@@ -81,7 +94,9 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:fontFamily="@font/malgunbd"
+            android:textColor="#000000"/>
 
         <TextView
             android:text="내용"
@@ -92,7 +107,9 @@
             android:textSize="24dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:fontFamily="@font/malgunbd"
+            android:textColor="#000000"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

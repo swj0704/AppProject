@@ -33,7 +33,7 @@
             android:fontFamily="@font/malgunbd"
             android:text="LOGIN"
             android:textColor="@color/mainColor"
-            android:textSize="35dp" />
+            android:textSize="35sp" />
 
         <EditText
             android:id="@+id/inputEmail"
@@ -45,7 +45,8 @@
             android:layout_marginBottom="8dp"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textSize="24dp" />
+            android:fontFamily="@font/malgunbd"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/inputPassword"
@@ -57,7 +58,8 @@
             android:layout_marginBottom="8dp"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textSize="24dp" />
+            android:fontFamily="@font/malgunbd"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/login"
@@ -73,7 +75,7 @@
             android:fontFamily="@font/malgunbd"
             android:text="로그인"
             android:textColor="#ffffff"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/findPassword"
@@ -89,7 +91,7 @@
             android:fontFamily="@font/malgunbd"
             android:text="비밀번호 찾기"
             android:textColor="#ffffff"
-            android:textSize="24dp" />
+            android:textSize="24sp" />
 
     </LinearLayout>
 

@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="250dp"
+            android:fontFamily="@font/malgunbd"
             android:text="연장 신청, 잔류 신청, 외출 신청, 기상 음악 신청을 할 수 있습니다."
             android:textSize="20dp" />
 
@@ -70,7 +71,8 @@
             android:fontFamily="@font/malgunbd"
             android:text="기숙사에서 노트북을 사용하려면 신청하세요"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            android:textColor="#000000"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -104,7 +106,8 @@
             android:fontFamily="@font/malgunbd"
             android:text="기상음악을 신청하세요"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView1" />
+            app:layout_constraintTop_toBottomOf="@+id/textView1"
+            android:textColor="#000000"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -138,7 +141,8 @@
             android:fontFamily="@font/malgunbd"
             android:text="주말 기숙사 잔류를 신청하세요"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:textColor="#000000" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

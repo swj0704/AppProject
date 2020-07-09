@@ -30,7 +30,8 @@
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/songUrl"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/malgunbd"/>
 
     <EditText
         android:id="@+id/songUrl"
@@ -46,14 +47,19 @@
         app:layout_constraintBottom_toTopOf="@+id/btnRequestSong"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/malgunbd"/>
 
     <Button
         android:id="@+id/btnRequestSong"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
-        android:background="#00ff0000"
+        android:background="@color/mainColor"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/malgunbd"
         android:text="신청하기"
         android:textSize="24dp"
         app:layout_constraintBottom_toTopOf="@+id/btnReturn"
@@ -63,10 +69,14 @@
 
     <Button
         android:id="@+id/btnReturn"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="#00ff0000"
+        android:background="@color/mainColor"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/malgunbd"
         android:text="돌아가기"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"

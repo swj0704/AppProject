@@ -46,19 +46,23 @@
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/malgunbd"
+                android:textColor="@color/mainColor"/>
 
             <TextView
-            android:id="@+id/textView1230"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="닉네임 : swj0704"
-            android:textSize="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView123" />
+                android:id="@+id/textView1230"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="닉네임 : swj0704"
+                android:textSize="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView123"
+                android:fontFamily="@font/malgun"
+                android:textColor="#000000"/>
             <TextView
                 android:id="@+id/textView1231"
                 android:layout_width="0dp"
@@ -69,7 +73,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView1230" />
+                app:layout_constraintTop_toBottomOf="@+id/textView1230"
+                android:fontFamily="@font/malgun"
+                android:textColor="#000000"/>
 
             <TextView
                 android:id="@+id/textLingSWJ"
@@ -84,7 +90,8 @@
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/textView1231"
                 android:linksClickable="true"
-                android:autoLink="web" />
+                android:autoLink="web"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -114,7 +121,9 @@
                 android:textSize="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView1"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/mainColor"
+                android:fontFamily="@font/malgunbd"/>
 
             <TextView
                 android:id="@+id/textView1235"
@@ -126,7 +135,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView1"
-                app:layout_constraintTop_toBottomOf="@+id/textView1234" />
+                app:layout_constraintTop_toBottomOf="@+id/textView1234"
+                android:textColor="#000000"
+                android:fontFamily="@font/malgun"/>
             <TextView
                 android:id="@+id/textView1236"
                 android:layout_width="0dp"
@@ -137,7 +148,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView1"
-                app:layout_constraintTop_toBottomOf="@+id/textView1235" />
+                app:layout_constraintTop_toBottomOf="@+id/textView1235"
+                android:textColor="#000000"
+                android:fontFamily="@font/malgun"/>
 
             <TextView
                 android:id="@+id/textLingSuvin"
@@ -165,10 +178,16 @@
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="100dp"
-        android:text="Button"
+        android:background="@color/mainColor"
+        android:text="돌아가기"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24sp"
+        android:fontFamily="@font/malgunbd"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
