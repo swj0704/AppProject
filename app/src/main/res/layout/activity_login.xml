@@ -44,6 +44,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:hint="Email"
+            android:background="#78E3E4DF"
             android:inputType="textEmailAddress"
             android:fontFamily="@font/malgunbd"
             android:textSize="24sp" />
@@ -57,6 +58,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:hint="Password"
+            android:background="#78E3E4DF"
             android:inputType="textPassword"
             android:fontFamily="@font/malgunbd"
             android:textSize="24sp" />
