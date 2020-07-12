@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -28,6 +29,7 @@ public class CheckBreak extends AppCompatActivity {
     ArrayList<String> breakTitle = new ArrayList<>();
     ArrayList<String> breakContents = new ArrayList<>();
     ListView listView;
+    Button btnReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class CheckBreak extends AppCompatActivity {
         setContentView(R.layout.activity_check_break);
 
         listView = findViewById(R.id.breakList);
+        btnReturn = findViewById(R.id.btnBreakBack);
+
 
         //region 고장난 시설의 이름, 고장 상태 받아오기
         database= FirebaseDatabase.getInstance();
@@ -78,6 +82,12 @@ public class CheckBreak extends AppCompatActivity {
         });
         //endregion
 
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     //region 리스트뷰 어댑터 생성
